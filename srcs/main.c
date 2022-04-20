@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 13:45:12 by wchae             #+#    #+#             */
-/*   Updated: 2022/04/14 16:57:07 by wchae            ###   ########.fr       */
+/*   Updated: 2022/04/20 23:23:52 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,55 +48,18 @@ void free_dptr_str(char **str)
 	free(str);
 }
 
-t_stack_node	*new_node(int	data)
+void	is_duplicated(t_stack_node *node, int data)
 {
-	t_stack_node	*node;
-	node = (t_stack_node*) malloc(sizeof(t_stack_node));
-	if (!node)
-		erorr_handle();
-	node->data = data;
-	node->next = 0;
-	node->prev = 0;
-	return (node);
-}
-
-void	stack_add_back(t_stack *stack, t_stack_node *new_node)
-{
-	if (stack->count == 0)
+	while (node)
 	{
-		stack->head = new_node;
-		stack->tail = stack->head;
-	}
-	else
-	{
-		stack->tail->next = new_node;
-		stack->tail = new_node;
-		new_node->prev = stack->tail;
-	}
-	stack->count++;
-}
-
-void	init_stack_data(char *str, t_stack *stack)
-{
-	long long		data;
-	t_stack_node	*tmp;
-
-	if (11 < ft_strlen(str))
-		erorr_handle();
-	data = ft_atoi(str);
-	if (2147483647 < data || data < -2147483648)
-		erorr_handle();
-	tmp = stack->head;
-	while (tmp)
-	{
-		if (tmp->data == (int)data)
+		if (node->data == data){
 			erorr_handle();
-		tmp = tmp->next;
+		}
+		node = node->next;
 	}
-	stack_add_back(stack, new_node(data));
 }
 
-void	parse(int argc, char **argv, t_ps *stack)
+void	check_arg(int argc, char **argv, t_ps *stack)
 {
 	int		i;
 	int		j;
@@ -118,17 +81,66 @@ void	parse(int argc, char **argv, t_ps *stack)
 	}
 }
 
-int		main(int argc, char **argv)
+void	free_stack(t_ps	stack)
 {
-	t_ps	stack;
-	t_stack_node *node;
+	t_stack_node	*tmp;
 
-	ft_bzero(&stack, sizeof(t_ps));
-	parse(argc, argv, &stack);
-	node = stack.a.head;
+	while (stack.a.head)
+	{
+		tmp = stack.a.head;
+		stack.a.head = stack.a.head->next;
+		free(tmp);
+	}
+}
+
+int		is_sorted(t_stack stack, int count)
+{
+	t_stack_node	*node;
+	int				i;
+
+	node = stack.head;
+	i = 0;
+	while (node->next && i < count)
+	{
+		if (node->data < node->next->data)
+			return (FALSE);
+		node = node->next;
+		i++;
+	}
+	return (TRUE);
+}
+
+// ============================================print
+void	print_node(t_stack_node	*node)
+{
 	while (node){
 		printf(" %d ", node->data);
 		node = node->next;
 	}
+}
+// ============================================print
+
+
+int		main(int argc, char **argv)
+{
+	t_ps	stack;
+	// t_stack_node *node;
+
+	ft_bzero(&stack, sizeof(t_ps));
+	check_arg(argc, argv, &stack);
+	
+	if (is_sorted(stack.a, stack.count))
+	{
+		free_stack(stack);
+		return (0);
+	}
+	// else if (is_decending(stack.a, stack.count) && stack.count != 5)
+	// 	sort_decending();
+	// else if (stack.count == 5)
+	// 	sort
+
+
+	print_node(stack.a.head);
+	
 	return 0;
 }
