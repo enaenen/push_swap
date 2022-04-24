@@ -5,34 +5,62 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/24 10:45:44 by wchae             #+#    #+#             */
-/*   Updated: 2022/04/24 11:03:30 by wchae            ###   ########.fr       */
+/*   Created: 2022/04/14 13:45:50 by wchae             #+#    #+#             */
+/*   Updated: 2022/04/20 23:23:37 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../lib/libft/libft.h"
+// Dependencies
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+#include "../lib/libft/libft.h"
+
+# define TRUE 1
+# define FALSE 0
 
 typedef struct s_stack_node
 {
-	int					data;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;	
+	int		data;
+	struct s_stack_node *next;
+	struct s_stack_node *prev;
 }	t_stack_node;
 
-typedef struct s_push_swap
+typedef struct s_stack
 {
-	int					*array;
-	int					a_size;
-	int					b_size;
-	t_stack_node		*a_top;
-	t_stack_node		*a_bottom;
-	t_stack_node		*b_top;
-	t_stack_node		*b_bottom;
+	int				count;
+	t_stack_node	*head;
+	t_stack_node	*tail;
+}	t_stack;
 
+typedef struct	s_ps
+{
+	int		count;
+	t_stack a;
+	t_stack b;
 }	t_ps;
-# define TRUE 1
-# define FALSE 0
+
+typedef struct s_pv
+{
+	int	ra_cnt;
+	int	rb_cnt;
+	int	pb_cnt;
+	int	pa_cnt;
+	int	pv_s;
+	int	pv_l;
+	int	pv_s_count;
+	int	pv_l_count;
+	int	*arr;
+}	t_pv;
+
+void	erorr_handle(void);
+t_stack_node	*new_node(int	data);
+void	init_stack_data(char *str, t_stack *stack)
+
+
+
 #endif

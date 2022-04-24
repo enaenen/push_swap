@@ -1,10 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: wchae <wchae@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/04/24 11:28:46 by wchae             #+#    #+#              #
+#    Updated: 2022/04/24 11:28:48 by wchae            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 RM = rm -rf
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_bzero.c ft_strlen.c ft_bzero.c ft_putstr_fd.c ft_strjoin.c ft_strlcpy.c ft_itoa.c ft_strndup.c ft_split.c ft_memcmp.c ft_strnstr.c ft_isdigit.c ft_atoi.c
+SRCS = ft_bzero.c ft_strlen.c ft_bzero.c ft_putstr_fd.c ft_strjoin.c ft_strlcpy.c ft_itoa.c ft_strndup.c ft_split.c ft_memcmp.c ft_strnstr.c ft_isdigit.c ft_isspace.c ft_strcnt.c ft_atoi.c
 OBJS = $(SRCS:.c=.o)
 OBJ_FILES = $(OBJS)
 

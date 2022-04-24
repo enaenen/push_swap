@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 15:44:37 by wchae             #+#    #+#             */
-/*   Updated: 2022/04/24 11:28:22 by wchae            ###   ########.fr       */
+/*   Updated: 2022/04/24 11:25:11 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ char		*ft_strndup(const char *src, int len);
 char		**ft_split(const char *s, char c);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
-int			ft_isdigit(int c);
 int			ft_isspace(char c);
-int			ft_strcnt(char	**str_arr);
+int			ft_isdigit(int c);
 long long	ft_atoi(const char *str);
+int			ft_strcnt(char	**strs);
+
 
 
 #endif
