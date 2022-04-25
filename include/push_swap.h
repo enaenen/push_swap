@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 10:45:44 by wchae             #+#    #+#             */
-/*   Updated: 2022/04/24 11:03:30 by wchae            ###   ########.fr       */
+/*   Updated: 2022/04/25 16:02:09 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,21 @@ typedef struct s_push_swap
 	t_stack_node		*b_bottom;
 
 }	t_ps;
+
 # define TRUE 1
 # define FALSE 0
+
+/* PUSH AND SWAP */
+void	pa(t_ps *ps);
+void	pb(t_ps *ps);
+void	sa(t_ps *ps);
+void	sb(t_ps *ps);
+void	ss(t_ps *ps);
+
+void	ra(t_ps *ps);
+void	rb(t_ps *ps);
+void	rra(t_ps *ps);
+void	rrb(t_ps *ps);
+
+
 #endif
