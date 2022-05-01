@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:22:22 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/02 02:40:18 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 02:59:30 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,45 @@ void	sort_3(t_stack	*a)
 	else if (bot < mid && top < mid && bot < top)
 		command(a, 0, "rra");
 }
-
-void	sort_big(t_stack *a, t_stack *b)
+void	a_to_b(t_stack *a, t_stack *b)
 {
-	double	chunk;
+	int	chunk;
 	size_t	num;
 	t_node	*node;
 	int		i;
 
-	num = a->size;
-	chunk = 0.000000053;
-	num = chunk * num * num + 0.03 * num + 14.5;
-	i = 0;
+	num = 0;
+	chunk = 30;
 	node = a->top;
-	// while (i < a->size)
-	// {
-	// 	if (node->index <= num)
+	while (i < a->size)
+	{
+		if (node->index <= num)
+		{
+			command(a, b, "pb");
+			num++;
+		}
+		else if (num < node->index && node->index <= num + chunk)
+		{
+			command(a, b, "pb");
+			commnad(0, b, "rb");
+			num++;
+		}
+		else if (num + chunk < node->index)
+		{
+			commnad(a, 0, "ra");
+		}
+	}
+}
 
-	// }
+void	b_to_a(t_stack *a, t_stack *b)
+{
+	//a로 넘깁니다.
+	//b의 가장 큰 값을 가장 효율적으로 top으로 옮깁니다.
+	//b의 모든 값이 a로 넘어갈때까지 1,2를 반복
+}
+
+void	sort_big(t_stack *a, t_stack *b)
+{
+	a_to_b(a, b);
+	b_to_a(a, b);
 }
