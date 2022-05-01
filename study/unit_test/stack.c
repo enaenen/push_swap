@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 22:02:36 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/01 18:44:25 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/01 23:08:13 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	print_stack(t_stack *stack)
 	{
 		node = pop(stack);
 		printf(" %d ", node->data);
+		printf(" index = %d \n", node->index);
 		free(node);
 		i++;
 	}

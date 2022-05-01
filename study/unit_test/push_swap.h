@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:04:40 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/01 18:47:57 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/01 23:08:24 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,15 @@ int			rotate(t_stack *stack);
 int			reverse_rotate(t_stack *stack);
 void		command(t_stack *a, t_stack *b, char *str);
 void		rotate_both_command(t_stack *a, t_stack *b, char *str);
+/*sort*/
+int			is_ascending(t_stack *stack, int cnt);
+void		sort_2(t_stack	*a);
+void		sort_3(t_stack	*a);
+void		indexing_stack(t_stack *stack);
+t_node		*get_min_value_node(t_stack *stack);
+
 /*TEST */
 void		print_stack(t_stack *stack);
+void		print_index(t_stack *stack);
+
 #endif
