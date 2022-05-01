@@ -6,7 +6,7 @@
 #    By: wchae <wchae@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/27 21:22:26 by wchae             #+#    #+#              #
-#    Updated: 2022/05/01 17:32:46 by wchae            ###   ########.fr        #
+#    Updated: 2022/05/01 18:48:44 by wchae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LIBFT_DIR	= ./libft/
 LIBFT_FLAGS = -L ./$(LIBFT_DIR) -lft
 LIBFT_FILE	= $(LIBFT_DIR)libft.a
 
-SRC = main.c parse.c stack.c commands.c test.c#pushs.c reverse_rotates.c swaps.c rotates.c
+SRC = main.c parse.c stack.c commands.c manipulation.c validation.c test.c #pushs.c reverse_rotates.c swaps.c rotates.c
 SRCS = $(addprefix $(SRCS_DIR), $(SRC))
 OBJS = $(SRCS:.c=.o)
 

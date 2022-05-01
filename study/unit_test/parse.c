@@ -6,66 +6,11 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:04:20 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/01 15:54:09 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/01 18:37:47 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	get_size_split_str(char **split)
-{
-	int len;
-
-	len = 0;
-	while (split[len])
-		len++;
-	return (len);
-}
-
-void	ft_free_split(char **array)
-{
-	int	index;
-
-	index = 0;
-	while (array[index])
-		free(array[index++]);
-	free(array);
-	array = NULL;
-}
-
-void	ft_isonlyspace(char *str)
-{
-	int check;
-
-	check = 0;
-	while (str[check])
-	{
-		if(!ft_isspace(*str))
-			break;
-		check++;
-	}
-	if (*str == '\0')
-		error_handle(1);
-}
-
-int	get_str_size(int argc, char **argv)
-{
-	int	index;
-	int	size;
-	char	**split;
-
-	index = 0;
-	size = 0;
-	while (index < argc)
-	{
-		ft_isonlyspace(argv[index]);
-		split = ft_split(argv[index], ' ');
-		size += get_size_split_str(split);
-		ft_free_split(split);
-		index++;
-	}
-	return (size - 1);
-}
 
 int	ft_atoil(const char *str)
 {
@@ -92,14 +37,13 @@ int	ft_atoil(const char *str)
 	if (*str != '\0' || 10 < valid
 		|| 2147483647 < result || result < -2147483648)
 		error_handle(1);
-		
 	return ((int)result);
 }
 
 void	set_array(int *array, int *arr_index, char **str)
 {
-	int num;
-	int index;
+	int	num;
+	int	index;
 
 	index = 0;
 	while (str[index])
@@ -111,15 +55,14 @@ void	set_array(int *array, int *arr_index, char **str)
 	}
 }
 
-t_stack *array_to_stack(int *array, int arr_size)
+t_stack	*array_to_stack(int *array, int arr_size)
 {
 	int		i;
 	t_stack	*stack;
 	t_node	element;
-	
-	i = arr_size - 1;
-	stack = ft_calloc(1,sizeof(t_stack));
 
+	i = arr_size - 1;
+	stack = ft_calloc(1, sizeof(t_stack));
 	while (0 <= i)
 	{
 		element.data = array[i];

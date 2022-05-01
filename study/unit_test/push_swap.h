@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:04:40 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/01 17:44:36 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/01 18:47:57 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,47 +24,38 @@
 # define ALLOC_ERROR 3
 
 typedef struct s_stack_node_type {
-	int		data;
-	int		index;
+	int							data;
+	int							index;
 	struct s_stack_node_type	*next;
-} t_node;
+}	t_node;
 
 typedef struct s_stack {
 	t_node	*top;
 	t_node	*bottom;
 	int		size;
-}t_stack;
+}	t_stack;
 
-int	error_handle(int type);
-
-/* parsing */
-void	ft_free_split(char **array);
-int		get_size_split_str(char **split);
-int		get_str_size(int argc, char **argv);
-void	set_array(int *array, int *arr_index, char **str);
+int			error_handle(int type);
+/* validation*/
+int			get_size_split_str(char **split);
+int			get_str_size(int argc, char **argv);
+/* parsing  */
+void		ft_free_split(char **array);
+void		set_array(int *array, int *arr_index, char **str);
 t_stack		*parse_argv(int argc, char **argv);
-t_stack *array_to_stack(int *array, int arr_size);
-
-
+t_stack		*array_to_stack(int *array, int arr_size);
 /* stack manipulate */
-int		push(t_stack *stack, t_node element);
-t_node	*pop(t_stack *stack);
-t_node	*peek(t_stack *stack);
-int	reverse_push(t_stack *stack, t_node element);
-int	swap_top(t_stack *stack);
-int	trade_push(t_stack *from, t_stack *to);
-int	rotate(t_stack *stack);
-int reverse_rotate(t_stack *stack);
-void	command(t_stack *a, t_stack *b, char *str);
-void	rotate_both_command(t_stack *a, t_stack *b, char *str);
-
-
-
-
-
+int			push(t_stack *stack, t_node element);
+t_node		*pop(t_stack *stack);
+t_node		*peek(t_stack *stack);
+/* manipulate */
+int			reverse_push(t_stack *stack, t_node element);
+int			swap_top(t_stack *stack);
+int			trade_push(t_stack *from, t_stack *to);
+int			rotate(t_stack *stack);
+int			reverse_rotate(t_stack *stack);
+void		command(t_stack *a, t_stack *b, char *str);
+void		rotate_both_command(t_stack *a, t_stack *b, char *str);
 /*TEST */
-
-void	print_stack(t_stack *stack);
-
-
+void		print_stack(t_stack *stack);
 #endif

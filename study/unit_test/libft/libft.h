@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:12:50 by youjeon           #+#    #+#             */
-/*   Updated: 2022/05/01 16:58:15 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/01 18:32:56 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
 
 void				*ft_calloc(size_t n, size_t size);
 void				*ft_memset(void *dest, int c, size_t n);
@@ -31,7 +30,7 @@ char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-long long					ft_atoi(const char *str);
+long long			ft_atoi(const char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);

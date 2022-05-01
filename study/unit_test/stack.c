@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 22:02:36 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/01 16:13:28 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/01 18:44:25 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_node	*pop(t_stack *stack)
 {
 	t_node	*popped;
-	
+
 	if (!stack || stack->size < 1)
 		return (NULL);
 	popped = stack->top;
@@ -27,7 +27,7 @@ t_node	*pop(t_stack *stack)
 	return (popped);
 }
 
-int		push(t_stack *stack, t_node element)
+int	push(t_stack *stack, t_node element)
 {
 	t_node	*new;
 
@@ -85,10 +85,12 @@ t_node	*peek(t_stack *stack)
 
 void	print_stack(t_stack *stack)
 {
-	t_node *node;
+	t_node	*node;
+	int		size;
+	int		i;
 
-	int size = stack->size;
-	int i =0;
+	i = 0;
+	size = stack->size;
 	while (i < size)
 	{
 		node = pop(stack);
