@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:31:32 by wchae             #+#    #+#             */
-/*   Updated: 2022/02/25 16:37:48 by wchae            ###   ########.fr       */
+/*   Created: 2022/05/01 16:57:35 by wchae             #+#    #+#             */
+/*   Updated: 2022/05/01 16:58:28 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t	i;
+	unsigned char	*u1;
+	unsigned char	*u2;
 
-	i = 0;
-	if (!src || !dst)
-		return (0);
-	if (dstsize != 0)
+	u1 = (unsigned char *)s1;
+	u2 = (unsigned char *)s2;
+	while (*u1 && *u2)
 	{
-		while (i < dstsize - 1 && src[i])
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		if (*u1 != *u2)
+			return (*u1 - *u2);
+		u1++;
+		u2++;
 	}
-	while (src[i])
-		i++;
-	return (i);
+	return (*u1 - *u2);
 }

@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:04:40 by wchae             #+#    #+#             */
-/*   Updated: 2022/04/27 22:25:49 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/01 17:44:36 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,28 @@ void	ft_free_split(char **array);
 int		get_size_split_str(char **split);
 int		get_str_size(int argc, char **argv);
 void	set_array(int *array, int *arr_index, char **str);
-int		*parse_argv(int argc, char **argv);
+t_stack		*parse_argv(int argc, char **argv);
+t_stack *array_to_stack(int *array, int arr_size);
+
 
 /* stack manipulate */
-int		push(t_stack *stack, int data);
+int		push(t_stack *stack, t_node element);
 t_node	*pop(t_stack *stack);
 t_node	*peek(t_stack *stack);
+int	reverse_push(t_stack *stack, t_node element);
+int	swap_top(t_stack *stack);
+int	trade_push(t_stack *from, t_stack *to);
+int	rotate(t_stack *stack);
+int reverse_rotate(t_stack *stack);
+void	command(t_stack *a, t_stack *b, char *str);
+void	rotate_both_command(t_stack *a, t_stack *b, char *str);
+
+
+
+
+
 /*TEST */
+
 void	print_stack(t_stack *stack);
 
 

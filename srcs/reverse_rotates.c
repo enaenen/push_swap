@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   revsers_rotates.c                                  :+:      :+:    :+:   */
+/*   reverse_rotates.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:41:21 by wchae             #+#    #+#             */
-/*   Updated: 2022/04/25 16:44:10 by wchae            ###   ########.fr       */
+/*   Updated: 2022/04/26 00:15:33 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include <stdio.h>
 
 void	rra(t_ps *ps)
 {
@@ -19,12 +20,17 @@ void	rra(t_ps *ps)
 	if (ps->a_size < 2)
 		return;
 	node = ps->a_bottom;
+	// write(1, "HERE 1\n", 5);
+	// printf("now data %d", node->data);
+	// write(1, "HERE 1\n", 5);
+
+
 	ps->a_bottom = ps->a_bottom->prev;
 	ps->b_bottom->next = NULL;
 	ps->a_top->prev = node;
 	node->next = ps->a_top;
-	node->prev = NULL;
 	ps->a_top = node;
+	node->prev = NULL;
 	write(1, "rra\n", 4);
 }
 

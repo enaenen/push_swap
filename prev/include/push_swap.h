@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 13:45:50 by wchae             #+#    #+#             */
-/*   Updated: 2022/04/20 23:23:37 by wchae            ###   ########.fr       */
+/*   Updated: 2022/04/25 15:07:40 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,7 @@ typedef struct s_pv
 
 void	erorr_handle(void);
 t_stack_node	*new_node(int	data);
-void	init_stack_data(char *str, t_stack *stack)
-
+void	init_stack_data(char *str, t_stack *stack);
 
 
 #endif

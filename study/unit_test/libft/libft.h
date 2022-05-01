@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:12:50 by youjeon           #+#    #+#             */
-/*   Updated: 2022/04/27 21:52:50 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/01 16:58:15 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,6 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+int					ft_strcmp(const char *s1, const char *s2);
+
 #endif

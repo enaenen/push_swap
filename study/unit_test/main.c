@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:04:17 by wchae             #+#    #+#             */
-/*   Updated: 2022/04/27 22:31:28 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/01 18:24:29 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,26 @@ int	error_handle(int type)
 	return (-1);
 }
 
-void	array_to_stack(t_stack *stack, int *array)
-{
-	int		i;
-
-	i = 0;
-	printf("%d\n", array[i]);
-	while (array[i])
-	{
-		push(stack, array[i]);
-		i++;
-	}
-}
-
+/*
 int main(int argc, char **argv)
 {
-	int		*array;
+	// int		*array;
 	t_stack	*stack;
-	
-	stack = NULL;
+	t_stack	*stackB;
+
 	if (argc < 2)
 		error_handle(-1);
-	array = parse_argv(argc, argv);
-	array_to_stack(stack, array);
-	print_stack(stack);
+	stack = parse_argv(argc, argv);
+
+	stackB = ft_calloc(1, sizeof(t_stack));
+	printf("\n");
+	// swap_top(stack);
+	trade_push(stack, stackB);
+	// print_stack(stackB);
+	print_stack(stack);	
+	printf("\n====\n");
+	print_stack(stackB);
+	
+	system("leaks push_swap");
 }
+*/
