@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:22:22 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/01 23:15:49 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 02:40:18 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,21 @@ void	sort_3(t_stack	*a)
 		command(a, 0, "rra");
 }
 
-// void	sort_big(t_stack *a, t_stack *b)
-// {
-	
-// }
+void	sort_big(t_stack *a, t_stack *b)
+{
+	double	chunk;
+	size_t	num;
+	t_node	*node;
+	int		i;
+
+	num = a->size;
+	chunk = 0.000000053;
+	num = chunk * num * num + 0.03 * num + 14.5;
+	i = 0;
+	node = a->top;
+	// while (i < a->size)
+	// {
+	// 	if (node->index <= num)
+
+	// }
+}
