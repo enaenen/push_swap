@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:04:20 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/01 18:37:47 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 01:54:16 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,32 @@ void	set_array(int *array, int *arr_index, char **str)
 	}
 }
 
+void	duplicate_validation(int *array, int arr_size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < arr_size)
+	{
+		j = i + 1;
+		while (j < arr_size)
+		{
+			if (array[i] == array[j])
+				error_handle(1);
+			j++;
+		}
+		i++;
+	}
+}
+
 t_stack	*array_to_stack(int *array, int arr_size)
 {
 	int		i;
 	t_stack	*stack;
 	t_node	element;
 
+	duplicate_validation(array, arr_size);
 	i = arr_size - 1;
 	stack = ft_calloc(1, sizeof(t_stack));
 	while (0 <= i)
