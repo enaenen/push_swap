@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 18:37:28 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/01 18:37:58 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 20:32:14 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,22 @@ void	ft_isonlyspace(char *str)
 int	get_str_size(int argc, char **argv)
 {
 	int		index;
+	int		check;
 	int		size;
 	char	**split;
 
-	index = 0;
+	index = 1;
 	size = 0;
+	check = 0;
 	while (index < argc)
 	{
 		ft_isonlyspace(argv[index]);
 		split = ft_split(argv[index], ' ');
+		if (!*split)
+			error_handle(1);
 		size += get_size_split_str(split);
 		ft_free_split(split);
 		index++;
 	}
-	return (size - 1);
+	return (size);
 }
