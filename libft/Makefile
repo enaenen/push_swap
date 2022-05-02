@@ -5,43 +5,34 @@
 #                                                     +:+ +:+         +:+      #
 #    By: wchae <wchae@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/27 21:22:26 by wchae             #+#    #+#              #
-#    Updated: 2022/05/02 19:00:09 by wchae            ###   ########.fr        #
+#    Created: 2022/04/24 11:28:46 by wchae             #+#    #+#              #
+#    Updated: 2022/05/01 16:58:54 by wchae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libft.a
+RM = rm -rf
 
-NAME			= push_swap
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
-CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra
-AR		= ar rcs
-RM		= rm -f
-LEAK	= -g3 -fsanitize=address
-
-LIBFT_DIR	= ./libft/
-LIBFT_FLAGS = -L ./$(LIBFT_DIR) -lft
-LIBFT_FILE	= $(LIBFT_DIR)libft.a
-
-SRC = main.c parse.c stack.c commands.c manipulation.c validation.c sort.c sort_5.c sort_3.c
-SRCS = $(addprefix $(SRCS_DIR), $(SRC))
+SRCS =  ft_strlcpy.c ft_strndup.c ft_split.c ft_isdigit.c ft_isspace.c ft_atoi.c ft_memset.c ft_calloc.c ft_strcmp.c
 OBJS = $(SRCS:.c=.o)
+OBJ_FILES = $(OBJS)
 
-.c.o :
-	$(CC) $(CFLAGS) -o $@ -c $?
+all : $(NAME)
 
-$(NAME): $(OBJS)
-	make -C $(LIBFT_DIR)
-	$(CC) -o $(NAME) $(OBJS) $(LIBFT_FLAGS)
+$(NAME) : $(OBJ_FILES)
+	ar rcs $@ $(OBJ_FILES)
 
-all:	$(NAME)
-
-clean:
-	make -C $(LIBFT_DIR) clean
+clean :
 	$(RM) $(OBJS)
 
-fclean: clean
-	make -C $(LIBFT_DIR) fclean
+fclean : clean
 	$(RM) $(NAME)
 
-re:		fclean all
+re :
+	make fclean
+	make all
+
+.PHONY: clean fclean re all

@@ -5,11 +5,10 @@
 #                                                     +:+ +:+         +:+      #
 #    By: wchae <wchae@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/27 21:22:26 by wchae             #+#    #+#              #
-#    Updated: 2022/05/02 19:00:09 by wchae            ###   ########.fr        #
+#    Created: 2022/04/14 13:53:37 by wchae             #+#    #+#              #
+#    Updated: 2022/04/25 23:57:24 by wchae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME			= push_swap
 
@@ -19,11 +18,18 @@ AR		= ar rcs
 RM		= rm -f
 LEAK	= -g3 -fsanitize=address
 
-LIBFT_DIR	= ./libft/
+
+# ifeq ($(DEBUG),true)
+# 		CDEBUG = -g
+# endif
+
+# LIBFT
+LIBFT_DIR	= ./lib/libft/
 LIBFT_FLAGS = -L ./$(LIBFT_DIR) -lft
 LIBFT_FILE	= $(LIBFT_DIR)libft.a
 
-SRC = main.c parse.c stack.c commands.c manipulation.c validation.c sort.c sort_5.c sort_3.c
+SRCS_DIR = ./srcs/
+SRC = push_swap.c pushs.c reverse_rotates.c swaps.c rotates.c
 SRCS = $(addprefix $(SRCS_DIR), $(SRC))
 OBJS = $(SRCS:.c=.o)
 
@@ -33,6 +39,7 @@ OBJS = $(SRCS:.c=.o)
 $(NAME): $(OBJS)
 	make -C $(LIBFT_DIR)
 	$(CC) -o $(NAME) $(OBJS) $(LIBFT_FLAGS)
+
 
 all:	$(NAME)
 
@@ -45,3 +52,16 @@ fclean: clean
 	$(RM) $(NAME)
 
 re:		fclean all
+
+nm :
+	norminette $(SRCS)
+
+leak : 
+	make -C $(LIBFT_DIR)
+	$(CC) $(LEAK) -o $(NAME) $(SRCS) $(LIBFT_FLAGS)
+	
+test : make
+	./push_swap 4 5 1 3 8
+
+
+.PHONY: all re bonus clean fclean
