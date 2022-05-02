@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:22:22 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/02 13:49:11 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 15:05:35 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,28 @@ void	sort_3(t_stack	*a)
 	else if (bot < mid && top < mid && bot < top)
 		command(a, 0, "rra");
 }
+
+double	calculate_chunk(int x)
+{
+	double y;
+	double coefx2; 
+    double coefx;
+	
+	coefx2 = 5.29427309e-7;
+	coefx = 0.02391716881;
+	y = coefx2 * (x * x) + coefx * x + 14.5;
+	return (y);
+}
+
 //Chunk 식 만들기
 void	a_to_b(t_stack *a, t_stack *b)
 {
 	int	chunk;
-	size_t	num;
+	int	num;
 	t_node	*node;
 
 	num = 0;
-	chunk = 30;
+	chunk = calculate_chunk(a->size);
 	while (0 < a->size)
 	{
 		node = a->top;
@@ -67,12 +80,12 @@ void	a_to_b(t_stack *a, t_stack *b)
 		else if (num < node->index && node->index <= num + chunk)
 		{
 			command(a, b, "pb");
-			commnad(0, b, "rb");
+			command(0, b, "rb");
 			num++;
 		}
 		else if (num + chunk < node->index)
 		{
-			commnad(a, 0, "ra");
+			command(a, 0, "ra");
 		}
 	}
 }
@@ -81,7 +94,7 @@ void	a_to_b(t_stack *a, t_stack *b)
 // sort 4 일때
 // 4개 중 index값이 가장 작은것을 찾아서 pb
 // a size /2 위에있는지 아래있는 찾고 최소값이 위에 있으면 ra 아래 있으면 rra
-//ㅔ최소값을 pb -> sort 3 -> pa
+//최소값을 pb -> sort 3 -> pa
 
 
 //sort 5
@@ -103,7 +116,8 @@ void	b_to_a(t_stack *a, t_stack *b)
 	//-> 0 < b stack 동안 반복
 	
 }
-
+*/
+/*
 void	sort_big(t_stack *a, t_stack *b)
 {
 	a_to_b(a, b);

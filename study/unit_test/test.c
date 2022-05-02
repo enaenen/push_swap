@@ -71,6 +71,26 @@ void manipulate_unit_test(int argc, char **argv)
 	printf("\n===========================manipulate end\n");
 
 }
+void	sort_5_test(int argc, char **argv)
+{
+	t_stack	*a;
+	t_stack	*b;
+
+	
+	printf("===========================sort5 start\n");
+	a = parse_argv(argc, argv);
+	b = ft_calloc(1, sizeof(t_stack));
+	indexing_stack(a);
+	sort_5(a, b);
+
+	printf("stack A\n");
+	print_stack(a);	
+
+	printf("stack B \n");
+	print_stack(b);
+	free(a);
+	free(b);
+}
 
 int main(int argc, char **argv)
 {
@@ -84,7 +104,8 @@ int main(int argc, char **argv)
 
 	// manipulate_unit_test(argc, argv);
 	// sort_test(argc, argv);
-	indexing_test(argc, argv);
+	// indexing_test(argc, argv);
+	sort_5_test(argc, argv);
 
 	system("leaks push_swap > leaks_result_temp; cat leaks_result_temp |grep leaked && rm -rf leaks_result_temp");
 }
