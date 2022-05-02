@@ -6,21 +6,20 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:04:17 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/02 18:34:09 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 18:59:33 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-int	error_handle(int type)
+void	error_handle(int type)
 {
 	if (type >= 1)
 	{
 		write(2, "Error\n", 6);
 	}
 	exit(1);
-	return (-1);
 }
 
 int	is_ascending(t_stack *stack, int cnt)
@@ -89,13 +88,16 @@ int	main(int argc, char **argv)
 	b = ft_calloc(1, sizeof(t_stack));
 	if (!b)
 		error_handle(ALLOC_ERROR);
+	if (is_ascending(a, a->size))
+		error_handle(-1);
 	if (a->size == 5)
 		sort_5(a, b);
 	else if (a->size == 4)
 		sort_4(a, b);
 	else if (a->size == 3)
 		sort_3(a);
+	else if (a->size == 2)
+		sort_2(a);
 	else if (5 < a->size)
 		sort_big(a, b);
-	// system("leaks push_swap");
 }

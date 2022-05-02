@@ -6,13 +6,13 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:22:22 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/02 18:28:23 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 19:01:28 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-double	calculate_chunk(int x)
+static double	calculate_chunk(int x)
 {
 	double	y;
 	double	coefx2;
@@ -24,7 +24,7 @@ double	calculate_chunk(int x)
 	return (y);
 }
 
-void	a_to_b(t_stack *a, t_stack *b)
+static void	a_to_b(t_stack *a, t_stack *b)
 {
 	int		chunk;
 	int		num;
@@ -53,7 +53,7 @@ void	a_to_b(t_stack *a, t_stack *b)
 	}
 }
 
-int	find_location(t_stack *stack, int max)
+static int	find_location(t_stack *stack, int max)
 {
 	t_node	*node;
 	int		location;
@@ -68,7 +68,7 @@ int	find_location(t_stack *stack, int max)
 	return (max / 2 - location);
 }
 
-void	b_to_a(t_stack *a, t_stack *b)
+static void	b_to_a(t_stack *a, t_stack *b)
 {
 	int	max;
 	int	location;
