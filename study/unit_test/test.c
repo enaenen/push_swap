@@ -81,7 +81,12 @@ void	sort_5_test(int argc, char **argv)
 	a = parse_argv(argc, argv);
 	b = ft_calloc(1, sizeof(t_stack));
 	indexing_stack(a);
-	sort_5(a, b);
+	if (a->size == 5)
+		sort_5(a, b);
+	else if (a->size == 4)
+		sort_4(a, b);
+	else if (a->size == 3)
+		sort_3(a);
 
 	printf("stack A\n");
 	print_stack(a);	

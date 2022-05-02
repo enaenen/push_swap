@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:22:22 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/02 15:05:35 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 16:14:45 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,44 @@ void	a_to_b(t_stack *a, t_stack *b)
 		}
 	}
 }
+int	find_max_index(t_stack *stack)
+{
+	int max;
+	int	i;
+	t_node	*node;
+
+	i = stack->size;
+	max = -2147483648;
+	node = stack->top;
+	while (0 < i)
+	{
+		if (max <= node->index)
+			max = node->index;
+		i--;
+		node = node->next;
+	}
+	return	max;
+}
+
+void	b_to_a(t_stack *a, t_stack *b)
+{
+	int	middle;
+	int	max;
+	
+	middle = b->size / 2;
+	max = find_max(b);
+	//a로 넘깁니다.
+	//b의 가장 큰 값을 가장 효율적으로 top으로 옮깁니다.
+	//b의 모든 값이 a로 넘어갈때까지 1,2를 반복
+
+	//모래시계의 중간값을 기준으로 => b-> size / 2 를 기준으로
+	//a로 넘길 b의 최대 index 값이 위쪽인지 아래쪽인지 찾기
+	// 위쪽이면 rb , 아래쪽이면 rrb해서 b의 top 으로 최대값 올리기 
+	//top을 pa
+	//-> 0 < b stack 동안 반복
+	
+}
+
 /*
 // 3
 // sort 4 일때
