@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:04:40 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/02 16:10:13 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 18:33:05 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_node		*get_min_value_node(t_stack *stack);
 void		sort_5(t_stack	*a, t_stack *b);
 void		sort_4(t_stack	*a, t_stack *b);
 void		b_to_a(t_stack *a, t_stack *b);
-
+void		sort_big(t_stack *a, t_stack *b);
 
 /*TEST */
 void		print_stack(t_stack *stack);

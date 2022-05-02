@@ -75,26 +75,33 @@ void	sort_5_test(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-
-	
+	//32145
 	printf("===========================sort5 start\n");
 	a = parse_argv(argc, argv);
 	b = ft_calloc(1, sizeof(t_stack));
 	indexing_stack(a);
+	// ele.data = -99
+	// push(a, ele);
+	// ele.data = -5
+	// push(a, ele);
+	// ele.data = -1
+	// push(a, ele);
 	if (a->size == 5)
 		sort_5(a, b);
 	else if (a->size == 4)
 		sort_4(a, b);
 	else if (a->size == 3)
 		sort_3(a);
+	else if (5 < a->size)
+		sort_big(a, b);
 
 	printf("stack A\n");
 	print_stack(a);	
-
+	printf("bsize= %d\n",b->size);
 	printf("stack B \n");
 	print_stack(b);
 	free(a);
-	free(b);
+	// free(b);
 }
 
 int main(int argc, char **argv)

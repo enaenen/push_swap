@@ -6,30 +6,11 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:24:46 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/02 16:05:24 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 18:31:39 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
-// 3
-// sort 4 일때
-// 4개 중 index값이 가장 작은것을 찾아서 pb
-// a size /2 위에있는지 아래있는 찾고 최소값이 위에 있으면 ra 아래 있으면 rra
-//최소값을 pb -> sort 3 -> pa
-*/
-// void	sort_4(t_stack *a, t_stack *b)
-// {
-	
-// }
-
-
-
-//sort 5
-//최악의 경우 최소값이 밑에 밑에깔린경우
-//최소값 2개를 찾아서 pb
-// 최악의 경우 10번
-//size 가 3개 남을때까지 최소값 찾아서 ra반복, 찾으면 pb
 
 static void	find_2_min(t_stack *a, int cnt, int *min, int *second_min)
 {
@@ -55,10 +36,10 @@ static void	find_2_min(t_stack *a, int cnt, int *min, int *second_min)
 static int	find_min_index(t_stack *stack, int *min_index)
 {
 	t_node	*node;
-	node = stack->top;
-	int	min;
-	int	i;
+	int		min;
+	int		i;
 
+	node = stack->top;
 	*min_index = 1;
 	min = 2147483647;
 	i = stack->size;
@@ -78,7 +59,7 @@ static int	find_min_index(t_stack *stack, int *min_index)
 void	sort_4(t_stack *a, t_stack *b)
 {
 	int	min;
-	int min_index;
+	int	min_index;
 
 	min = find_min_index(a, &min_index);
 	while (3 < a->size)
@@ -95,7 +76,7 @@ void	sort_4(t_stack *a, t_stack *b)
 void	sort_5(t_stack *a, t_stack *b)
 {
 	int	min[2];
-	int i;
+	int	i;
 
 	find_2_min(a, 5, &min[0], &min[1]);
 	i = 0;

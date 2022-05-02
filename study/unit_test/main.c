@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:04:17 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/01 23:07:37 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 18:34:09 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,30 +69,33 @@ void	indexing_stack(t_stack *stack)
 	t_node	*node;
 
 	node = stack->top;
-	i = 0;
-	printf("stacksize = %d \n", stack->size);
+	i = 1;
 	while (i <= stack->size)
 	{
 		node = get_min_value_node(stack);
 		node->index = i++;
 	}
 }
-/*
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
-	t_stack	*stack;
-	t_stack	*stackB;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc < 2)
 		error_handle(-1);
-	stack = parse_argv(argc, argv);
-
-	stackB = ft_calloc(1, sizeof(t_stack));
-	printf("\n");
-	print_stack(stack);	
-	printf("\n====\n");
-	print_stack(stackB);
-		
-	system("leaks push_swap");
+	a = parse_argv(argc, argv);
+	indexing_stack(a);
+	b = ft_calloc(1, sizeof(t_stack));
+	if (!b)
+		error_handle(ALLOC_ERROR);
+	if (a->size == 5)
+		sort_5(a, b);
+	else if (a->size == 4)
+		sort_4(a, b);
+	else if (a->size == 3)
+		sort_3(a);
+	else if (5 < a->size)
+		sort_big(a, b);
+	// system("leaks push_swap");
 }
-*/

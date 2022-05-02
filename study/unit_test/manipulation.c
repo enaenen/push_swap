@@ -6,7 +6,7 @@
 /*   By: wchae <wchae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 12:28:57 by wchae             #+#    #+#             */
-/*   Updated: 2022/05/01 18:42:14 by wchae            ###   ########.fr       */
+/*   Updated: 2022/05/02 18:32:11 by wchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 int	swap_top(t_stack *stack)
 {
 	int	n;
+	int	index;
 
 	if (!stack || stack->size < 2)
 		return (FALSE);
 	n = stack->top->data;
+	index = stack->top->index;
 	stack->top->data = stack->top->next->data;
+	stack->top->index = stack->top->next->index;
 	stack->top->next->data = n;
+	stack->top->next->index = index;
 	return (TRUE);
 }
 
